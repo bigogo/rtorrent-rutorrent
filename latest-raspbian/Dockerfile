@@ -1,4 +1,4 @@
-FROM raspbian
+FROM resin/rpi-raspbian
 USER root
  
 RUN apt-get update && apt-get install -y git && \
