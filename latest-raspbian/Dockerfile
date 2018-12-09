@@ -2,21 +2,18 @@ FROM resin/raspberrypi3-debian:stretch
 USER root
  
 RUN apt-get update && apt-get install -y git && \
-    git clone https://github.com/diameter/rtorrent-rutorrent-shared.git a && \
+    git clone https://github.com/mickkael/rtorrent-rutorrent.git a && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y rtorrent unzip unrar-free mediainfo curl php-fpm php-cli php-geoip php-mbstring nginx wget ffmpeg supervisor php-xml libarchive-zip-perl libjson-perl libxml-libxml-perl irssi sox && \
     rm -rf /var/lib/apt/lists/* && \
-    cp ./a/rutorrent-*.nginx /root/ && \
+    cp ./a/config/rutorrent-*.nginx /root/ && \
     mkdir -p /var/www && cd /var/www && \
     git clone https://github.com/Novik/ruTorrent.git rutorrent && \
     rm -rf ./rutorrent/.git* && cd / && \
-    cp ./a/config.php /var/www/rutorrent/conf/ && \
-    cp ./a/startup-rtorrent.sh ./a/startup-nginx.sh ./a/startup-php.sh ./a/startup-irssi.sh ./a/.rtorrent.rc /root/ && \
-    cp ./a/supervisord.conf /etc/supervisor/conf.d/ && \
-    sed -i 's/\/var\/log/\/downloads\/\.log/g' /etc/nginx/nginx.conf && \
-    mkdir -p /var/run/php/ && \
-    service php7.0-fpm start && \
-    ln -s /var/run/php/php7.0-fpm.sock /var/run/php/php7.2-fpm.sock
+    cp ./a/config/config.php /var/www/rutorrent/conf/ && \
+    cp ./a/config/startup-rtorrent.sh ./a/config/startup-nginx.sh ./a/config/startup-php.sh ./a/config/startup-irssi.sh ./a/config/.rtorrent.rc /root/ && \
+    cp ./a/config/supervisord.conf /etc/supervisor/conf.d/ && \
+    sed -i 's/\/var\/log/\/downloads\/\.log/g' /etc/nginx/nginx.conf
  
 EXPOSE 80 443 49160 49161 5000
 VOLUME /downloads
