@@ -6,14 +6,15 @@ RUN apt-get update && apt-get install -y git && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y rtorrent unzip unrar-free mediainfo curl php-fpm php-cli php-geoip php-mbstring nginx wget ffmpeg supervisor php-xml libarchive-zip-perl libjson-perl libxml-libxml-perl irssi sox && \
     rm -rf /var/lib/apt/lists/* && \
-    cp ./a/config/rutorrent-*.nginx /root/ && \
+    cp ./a/latest-raspbian/config/rutorrent-*.nginx /root/ && \
     mkdir -p /var/www && cd /var/www && \
     git clone https://github.com/Novik/ruTorrent.git rutorrent && \
     rm -rf ./rutorrent/.git* && cd / && \
-    cp ./a/config/config.php /var/www/rutorrent/conf/ && \
-    cp ./a/config/startup-rtorrent.sh ./a/config/startup-nginx.sh ./a/config/startup-php.sh ./a/config/startup-irssi.sh ./a/config/.rtorrent.rc /root/ && \
-    cp ./a/config/supervisord.conf /etc/supervisor/conf.d/ && \
-    sed -i 's/\/var\/log/\/downloads\/\.log/g' /etc/nginx/nginx.conf
+    cp ./a/latest-raspbian/config/config.php /var/www/rutorrent/conf/ && \
+    cp ./a/latest-raspbian/config/startup-rtorrent.sh ./a/latest-raspbian/config/startup-nginx.sh ./a/latest-raspbian/config/startup-php.sh ./a/latest-raspbian/config/startup-irssi.sh ./a/latest-raspbian/config/.rtorrent.rc /root/ && \
+    cp ./a/latest-raspbian/config/supervisord.conf /etc/supervisor/conf.d/ && \
+    sed -i 's/\/var\/log/\/downloads\/\.log/g' /etc/nginx/nginx.conf && \
+    rm -rf a
  
 EXPOSE 80 443 49160 49161 5000
 VOLUME /downloads
