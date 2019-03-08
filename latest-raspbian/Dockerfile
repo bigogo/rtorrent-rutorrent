@@ -1,5 +1,6 @@
-FROM resin/raspberrypi3-debian:stretch
+FROM balenalib/raspberrypi3-debian:stretch-run-20181207
 USER root
+
  
 RUN apt-get update && apt-get install -y git && \
     git clone https://github.com/mickkael/rtorrent-rutorrent.git a && \
