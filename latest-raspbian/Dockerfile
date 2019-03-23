@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y git && \
     git clone https://github.com/Novik/ruTorrent.git rutorrent && \
     rm -rf ./rutorrent/.git* && cd / && \
     cp ./a/latest-raspbian/config/config.php /var/www/rutorrent/conf/ && \
-    cp ./a/latest-raspbian/config/startup-rtorrent.sh ./a/latest-raspbian/config/startup-nginx.sh ./a/latest-raspbian/config/startup-php.sh ./a/latest-raspbian/config/startup-irssi.sh ./a/latest-raspbian/config/.rtorrent.rc /root/ && \
+    cp ./a/latest-raspbian/config/startup-rtorrent.sh ./a/latest-raspbian/config/startup-nginx.sh ./a/latest-raspbian/config/startup-php.sh ./a/latest-raspbian/config/.rtorrent.rc /root/ && \
     chmod +x /root/* && \
     cp ./a/latest-raspbian/config/supervisord.conf /etc/supervisor/conf.d/ && \
     sed -i 's/\/var\/log/\/downloads\/\.log/g' /etc/nginx/nginx.conf && \
