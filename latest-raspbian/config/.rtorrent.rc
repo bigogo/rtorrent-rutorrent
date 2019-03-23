@@ -9,7 +9,7 @@ log.open_file = "rtorrent.log", "/downloads/.log/rtorrent/rtorrent.log"
 log.add_output = "info", "rtorrent.log"
 log.add_output = "critical", "rtorrent.log"
 log.add_output = "error", "rtorrent.log"
-#log.add_output = "warn", "rtorrent.log"
+log.add_output = "warn", "rtorrent.log"
 #log.add_output = "notice", "rtorrent.log"
 #log.add_output = "info", "rtorrent.log"
 #log.add_output = "debug", "rtorrent.log"
@@ -33,7 +33,7 @@ throttle.max_uploads.set = 8
 #throttle.global_up.max_rate.set_kb = 0
 
 # Default directory to save the downloaded torrents.
-directory.default.set = /downloads
+directory.default.set = /mnt/
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
@@ -92,7 +92,7 @@ trackers.use_udp.set = yes
 # "auto" (start and stop DHT as needed), or "on" (start DHT immediately).
 # The default is "off". For DHT to work, a session directory must be defined.
 # 
-dht.mode.set = auto
+dht.mode.set = disable
 
 # UDP port to use for DHT. 
 # 
