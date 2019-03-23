@@ -5,7 +5,7 @@ USER root
 RUN apt-get update && apt-get install -y git && \
     git clone https://github.com/mickkael/rtorrent-rutorrent.git a && \
     apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y rtorrent unzip unrar-free mediainfo curl php-fpm php-cli php-geoip php-mbstring nginx wget ffmpeg supervisor php-xml libarchive-zip-perl libjson-perl libxml-libxml-perl irssi sox && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y rtorrent unzip unrar-free mediainfo curl php-fpm php-cli php-geoip php-mbstring nginx wget ffmpeg supervisor php-xml libarchive-zip-perl libjson-perl libxml-libxml-perl sox && \
     rm -rf /var/lib/apt/lists/* && \
     cp ./a/latest-raspbian/config/rutorrent-*.nginx /root/ && \
     mkdir -p /var/www && cd /var/www && \
