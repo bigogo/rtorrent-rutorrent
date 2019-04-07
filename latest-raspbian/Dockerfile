@@ -1,22 +1,21 @@
-FROM balenalib/raspberrypi3-debian:stretch-run-20190301
+FROM balenalib/raspberrypi3-debian:stretch-run-20190327
 USER root
 
- 
+RUN mkdir /source
+COPY latest-raspbian/config/* /source/
 RUN apt-get update && apt-get install -y git && \
-    git clone https://github.com/mickkael/rtorrent-rutorrent.git a && \
-    apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y rtorrent unzip unrar-free mediainfo curl php-fpm php-cli php-geoip php-mbstring nginx wget ffmpeg supervisor php-xml libarchive-zip-perl libjson-perl libxml-libxml-perl sox && \
     rm -rf /var/lib/apt/lists/* && \
-    cp ./a/latest-raspbian/config/rutorrent-*.nginx /root/ && \
+    cp /source/rutorrent-*.nginx /root/ && \
     mkdir -p /var/www && cd /var/www && \
     git clone https://github.com/Novik/ruTorrent.git rutorrent && \
     rm -rf ./rutorrent/.git* && cd / && \
-    cp ./a/latest-raspbian/config/config.php /var/www/rutorrent/conf/ && \
-    cp ./a/latest-raspbian/config/startup-rtorrent.sh ./a/latest-raspbian/config/startup-nginx.sh ./a/latest-raspbian/config/startup-php.sh ./a/latest-raspbian/config/.rtorrent.rc /root/ && \
+    cp /source/config.php /var/www/rutorrent/conf/ && \
+    cp /source/startup-rtorrent.sh /source/startup-nginx.sh /source/startup-php.sh /source/.rtorrent.rc /root/ && \
     chmod +x /root/* && \
-    cp ./a/latest-raspbian/config/supervisord.conf /etc/supervisor/conf.d/ && \
+    cp /source/supervisord.conf /etc/supervisor/conf.d/ && \
     sed -i 's/\/var\/log/\/downloads\/\.log/g' /etc/nginx/nginx.conf && \
-    rm -rf a
+    rm -rf /source
  
 EXPOSE 80 443 49160 49161 5000
 VOLUME /downloads
