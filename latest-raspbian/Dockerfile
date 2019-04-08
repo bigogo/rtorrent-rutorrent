@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y git && \
     update-alternatives --install /usr/bin/python python /usr/bin/python3 2 && \
     pip3 install --no-cache-dir cfscrape && \
     rm -rf /var/lib/apt/lists/* && \
-    rm -rf /var/cache/* && \
+  #  rm -rf /var/cache/* && \
     cp /source/rutorrent-*.nginx /root/ && \
     mkdir -p /var/www && cd /var/www && \
     git clone https://github.com/Novik/ruTorrent.git rutorrent && \
