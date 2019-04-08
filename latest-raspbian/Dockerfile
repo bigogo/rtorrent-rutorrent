@@ -6,7 +6,7 @@ RUN mkdir /source
 COPY latest-raspbian/config/* /source/
 RUN apt-get update && apt-get install -y git && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip rtorrent unzip unrar-free mediainfo curl php-fpm php-cli php-geoip php-mbstring nginx wget ffmpeg supervisor php-xml libarchive-zip-perl libjson-perl libxml-libxml-perl sox && \
-    update-alternatives --install /usr/bin/python python /usr/bin/python3 2 && \
+    #update-alternatives --install /usr/bin/python python /usr/bin/python3 2 && \
     pip3 install --no-cache-dir cfscrape && \
     rm -rf /var/lib/apt/lists/* && \
   #  rm -rf /var/cache/* && \
