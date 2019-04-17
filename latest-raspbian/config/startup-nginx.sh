@@ -20,10 +20,10 @@ rm /var/www/rutorrent/.htpasswd
 site=rutorrent-basic.nginx
 
 # Check if TLS needed
-if [ -e /downloads/nginx.key ] && [ -e /downloads/nginx.crt ]; then
+if [ -e /ssl/privkey.pem ] && [ -e /ssl/fullchain.pem ]; then
     mkdir -p /etc/nginx/ssl
-    cp /downloads/nginx.crt /etc/nginx/ssl/
-    cp /downloads/nginx.key /etc/nginx/ssl/
+    cp /ssl/privkey.pem /etc/nginx/ssl/
+    cp /ssl/fullchain.pem /etc/nginx/ssl/
     site=rutorrent-tls.nginx
 fi
 
