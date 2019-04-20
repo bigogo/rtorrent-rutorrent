@@ -5,7 +5,7 @@ RUN [ "cross-build-start" ]
 RUN mkdir /source
 COPY latest-raspbian/config/* /source/
 RUN apt-get update && apt-get install -y git && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y python-pip rtorrent unzip unrar-free mediainfo curl php-fpm php-cli php-geoip php-mbstring nginx wget ffmpeg supervisor php-xml libarchive-zip-perl libjson-perl libxml-libxml-perl sox && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y python-pip python-setuptools rtorrent unzip unrar-free mediainfo curl php-fpm php-cli php-geoip php-mbstring nginx wget ffmpeg supervisor php-xml libarchive-zip-perl libjson-perl libxml-libxml-perl sox && \
     #update-alternatives --install /usr/bin/python python /usr/bin/python3 2 && \
     #rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python && \
     rm -rf /var/lib/apt/lists/* && \
