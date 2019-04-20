@@ -1,20 +1,14 @@
-Docker container with rTorrent and ruTorrent (stable and latest from github)
+Docker container with rTorrent and ruTorrent for Raspberrypi
 ============================================================================
 
-Ubuntu-based tags:
+Raspbian-based tags:
  
- - rtorrent-rutorrent:stable
  - rtorrent-rutorrent:latest
- - rtorrent-rutorrent:stable-32
- - rtorrent-rutorrent:latest-32
-
+ 
 Alpine-based tags (no mediainfo yet):
 
- - rtorrent-rutorrent:stable-alpine
  - rtorrent-rutorrent:latest-alpine
- - rtorrent-rutorrent:stable-alpine-32
- - rtorrent-rutorrent:latest-alpine-32
-
+ 
 ----------
 
 Multiple processes inside the container managed by supervisord:
@@ -22,7 +16,6 @@ Multiple processes inside the container managed by supervisord:
 - nginx
 - php-fpm
 - rtorrent
-- irssi
 
 ----------
 Exposed:
@@ -32,7 +25,6 @@ Exposed:
  - Incoming connections port: 49161 (can be remapped)
  - Downloads volume: /downloads
  - rtorrent scratch files (.rtorrent/{watch|session} will be created automatically): /downloads
- - autodl-irssi config files are created automatically: /downloads/.autodl
  - external rtorrent config (.rtorrent/.rtorrent.rc): /downloads
  - external ruTorrent ui config (config will be created automatically): /downloads/.rutorrent
  - external nginx and rtorrent logs: /downloads/.log/
