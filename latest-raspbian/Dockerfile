@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y git && \
     #rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python && \
     rm -rf /var/lib/apt/lists/* && \
     pip install --no-cache-dir cfscrape && \
+    pip install --no-cache-dir --upgrade setuptools && \
     #rm -rf /var/cache/* && \
     cp /source/rutorrent-*.nginx /root/ && \
     mkdir -p /var/www && cd /var/www && \
